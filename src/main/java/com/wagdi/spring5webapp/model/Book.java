@@ -22,6 +22,9 @@ public class Book {
     )
     private Set<Author> authors = new HashSet<>();
 
+    public Book() {
+    }
+
     public Book(String title, Publisher publisher, long isbn) {
         this.title = title;
         this.publisher = publisher;
@@ -58,6 +61,14 @@ public class Book {
 
     public void setPublisher(Publisher publisher) {
         this.publisher = publisher;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
