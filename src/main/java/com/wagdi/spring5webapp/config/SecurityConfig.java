@@ -13,14 +13,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("admin").password("{noop}admin").roles("USER,ADMIN")
+        auth.inMemoryAuthentication().withUser("admin").password("{noop}admin").roles("USER","ADMIN")
                 .and().withUser("user").password("{noop}user").roles("USER");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/books").hasRole("USER")
-                .antMatchers("/authors").hasRole("ADMIN")
+                .antMatchers("/**").hasRole("ADMIN")
                 .and().formLogin().and().logout();
     }
 }
