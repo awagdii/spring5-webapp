@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/books").hasRole("USER")
-                .antMatchers("/authors").hasRole("admin")
+                .antMatchers("/authors").hasRole("ADMIN")
                 .and().formLogin().and().logout();
     }
 }
